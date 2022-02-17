@@ -68,7 +68,6 @@ cards:
 </code></pre>
 
 add to your input_select.yaml
-
 <pre><code>
     media_tv:
       name: 'TV Players:'
@@ -80,14 +79,12 @@ add to your input_select.yaml
 </code></pre>
 
 add to your input_text.yaml
-
 <pre><code>
     media_tv_to_play:
       name: 'TV Devices'
 </code></pre>
 
 add to your automation.yaml
-
 <pre><code>
   - alias: "Cast - Selected Name to Device"
     trigger:

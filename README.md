@@ -31,7 +31,7 @@ type: vertical-stack
 cards:
   - type: entities
     entities:
-      - entity: input_select.media_players
+      - entity: input_select.media_tv
   - type: custom:auto-entities
     card:
       type: glance
@@ -62,15 +62,62 @@ cards:
         media_content_id: >-
           {{ state_attr(sensor, 'm3u') }}
         media_content_type: media
-      target:
-        entity_id: "{{states('input_select.media_players')}}"
+      data:
+        entity_id: "{{ states('input_text.media_tv_to_play') }}"
 
 </code></pre>
 
-and create <code>input_select</code> with all your Chromecast devices
+add to your input_select.yaml
+
+<pre><code>
+    media_tv:
+      name: 'TV Players:'
+      options:
+        - Living
+        - Bedroom
+        - Office
+        - Kitchen
+</code></pre>
+
+add to your input_text.yaml
+
+<pre><code>
+    media_tv_to_play:
+      name: 'TV Devices'
+</code></pre>
+
+add to your automation.yaml
+
+<pre><code>
+  - alias: "Cast - Selected Name to Device"
+    trigger:
+      - platform: homeassistant
+        event: start
+      - platform: state
+        entity_id: input_select.media_tv
+    action:
+      - service: input_text.set_value
+        data:
+          entity_id: input_text.media_tv_to_play
+          value: >-
+            {% if is_state("input_select.media_tv", "Living") -%}
+              media_player.xbr_75x800g #your device
+            {% elif is_state("input_select.media_tv", "Bedroom") -%} 
+              media_player.chromecast9410 #your device
+            {% elif is_state("input_select.media_tv", "Office") -%}
+              media_player.chromecast8612 #your device
+            {% elif is_state("input_select.media_tv", "Kitchen") -%}
+              media_player.chromecast0280 #your device
+            {% endif %}
+</code></pre>
+
+restart HA
+
 
 ## Note
-I able to cast to google nest hub and google mini (audio only) but not to LG TV and MiBox 3
+I able to cast to LG TV (with Chromecast connected to HDMI) and 2 Sony Bravia (one with cast build in and second one with Chromecast connected to HDMI) and Insignia (with Chromecast connected to HDMI)
+
+
 ## Thanks
 
 to everyone @[Home Assistant](https://www.home-assistant.io/ "Home Assistant")

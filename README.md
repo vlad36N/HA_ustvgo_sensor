@@ -38,7 +38,7 @@ cards:
       show_name: true
       show_icon: false
       show_state: false
-      title: רשימת ערוצים
+      title: USA TV
     filter:
       include:
         - state: ustvgo_*

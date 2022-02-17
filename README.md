@@ -119,6 +119,8 @@ I able to cast to LG TV (with Chromecast connected to HDMI) and 2 Sony Bravia (o
 
 to everyone @[Home Assistant](https://www.home-assistant.io/ "Home Assistant")
  for creating the amazing opensource platform for smart home integrations! 🙏🏼 
-
+ 
+Thanks/Forked from  https://github.com/yohaybn/HA_ustvgo_sensor 
+ 
 Thanks to @[benmoose39](https://github.com/benmoose39 "benmoose39") for writing the automation on m3u fetching.
 Thanks to @[yishait](https://github.com/yishait "yishait") for the idea.

@@ -21,7 +21,7 @@ add sensor to your configuration.yaml
 </code></pre>
 this will create sensor for each channel from UStvgo
 ## Create Lovelace card
-![enter image description here](https://github.com/yohaybn/HA_ustvgo_sensor/blob/main/images/lovelace.png?raw=true)
+![enter image description here](https://github.com/vlad36N/HA_ustvgo_sensor/blob/main/images/lovelace1.png?raw=true)
 
 To create such card that cast the selected channel to selected Chromecast device you need to add the following
 
